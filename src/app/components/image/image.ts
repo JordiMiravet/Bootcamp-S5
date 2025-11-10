@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ImageModel } from '../../models/image';
 
 @Component({
   selector: 'app-image',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './image.html',
   styleUrls: ['./image.css'],
 })
 export class ImageComponent {
-  img : string = "https://picsum.photos/id/237/300/200";
+  @Input() image!: ImageModel;
 }
