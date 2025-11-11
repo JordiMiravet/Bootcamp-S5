@@ -1,23 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ImageModel } from '../../models/imageModel';
+import { ImageComponent } from './image';
 
-import { Image } from './image';
-
-describe('Image', () => {
-  let component: Image;
-  let fixture: ComponentFixture<Image>;
+describe('ImageComponent', () => {
+  let component: ImageComponent;
+  let fixture: ComponentFixture<ImageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Image]
-    })
-    .compileComponents();
+      imports: [ImageComponent]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(Image);
+    fixture = TestBed.createComponent(ImageComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it("should render an image with correct src and alt", () => {
+    const testImage: ImageModel = {
+      id: 1,
+      url: 'https://picsum.photos/200/300?grayscale&seed=1',
+      description: 'Test image 1'
+    };
+    
+    component.image = testImage;
+    fixture.detectChanges();
+
+    const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
+
+    expect(img.getAttribute('src')).toBe(testImage.url);
+    expect(img.getAttribute('alt')).toBe(testImage.description);
   });
 });
