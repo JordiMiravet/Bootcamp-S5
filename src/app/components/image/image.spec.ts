@@ -21,7 +21,6 @@ describe('ImageComponent', () => {
       url: 'https://picsum.photos/200/300?grayscale&seed=1',
       description: 'Test image 1'
     };
-    
     component.image = testImage;
     fixture.detectChanges();
 

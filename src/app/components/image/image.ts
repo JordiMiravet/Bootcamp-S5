@@ -13,4 +13,3 @@ import { ImageModel } from '../../models/imageModel';
 export class ImageComponent {
   @Input() image!: ImageModel;
 }
-
