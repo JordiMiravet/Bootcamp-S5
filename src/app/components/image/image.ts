@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageModel } from '../../models/image';
+import { ImageModel } from '../../models/imageModel';
 
 @Component({
   selector: 'app-image',
@@ -12,3 +12,4 @@ import { ImageModel } from '../../models/image';
 export class ImageComponent {
   @Input() image!: ImageModel;
 }
+

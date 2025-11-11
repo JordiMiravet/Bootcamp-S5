@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { ImageModel } from '../../models/image';
+import { ImageModel } from '../../models/imageModel';
 import { ImageComponent } from '../image/image';
 import { CommonModule } from '@angular/common';
 

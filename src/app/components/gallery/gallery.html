@@ -1,3 +1,5 @@
 <div class="image-section"> 
-    <app-image *ngFor="let image of images()" [image]="image"></app-image> 
+    @for(image of images(); track image.id) {
+        <app-image [image]="image" />
+    }
 </div>
