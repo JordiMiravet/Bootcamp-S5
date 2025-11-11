@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModel } from '../../models/imageModel';
 
@@ -8,6 +8,7 @@ import { ImageModel } from '../../models/imageModel';
   imports: [CommonModule],
   templateUrl: './image.html',
   styleUrls: ['./image.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageComponent {
   @Input() image!: ImageModel;
