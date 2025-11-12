@@ -26,4 +26,5 @@ export class GalleryComponent {
     { id: 11, url: 'https://picsum.photos/200/300?grayscale&seed=11', description: 'Imagen 11' },
     { id: 12, url: 'https://picsum.photos/200/300?grayscale&seed=12', description: 'Imagen 12' },
   ]);
+  // 
 }

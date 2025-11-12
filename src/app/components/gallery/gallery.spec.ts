@@ -34,4 +34,17 @@ describe('Gallery', () => {
     expect(images.length).toBe(mockImages.length);
     expect(images[0]).toEqual(mockImages[0]);
   });
+  
+  it("que pasa si retorna una imagen vacia", () => {
+    const mockImages = [
+      { id: 1, url: '', description: 'Imagen 1'}
+    ];
+    component.images.set(mockImages); 
+    fixture.detectChanges();
+
+    const emptyImage = fixture.nativeElement.querySelector(".empty-image");
+
+    expect(emptyImage).toBeTruthy();
+    expect(emptyImage.textContent).toContain("Imagen no disponible");
+  });
 });
