@@ -35,7 +35,7 @@ describe('Gallery', () => {
     expect(images[0]).toEqual(mockImages[0]);
   });
   
-  it("que pasa si retorna una imagen vacia", () => {
+  it("should display alternative text when an empty image is returned", () => {
     const mockImages = [
       { id: 1, url: '', description: 'Imagen 1'}
     ];
