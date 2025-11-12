@@ -1,13 +1,20 @@
-<div class="image-section"> 
+<div class=" 
+w-11/12 md:w-10/12 
+my-0 mx-auto 
+grid gap-4 grid-cols-2 
+md:grid-cols-4 
+lg:grid-cols-5 
+"> 
     @for(image of images(); track image.id) {
         @if(image.url){
             @if(!image.featured){
                 <app-image [image]="image" />
             } @else {
-                <app-image [image]="image" class="featured" />
+                <app-image [image]="image" 
+                class="lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 object-cover" />
             }
         } @else {
-            <div class="empty-image">Imagen no disponible</div>
+            <div class="flex justify-center items-center tracking-widest">Imagen no disponible</div>
         } 
     }
 </div>
