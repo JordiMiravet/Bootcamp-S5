@@ -1,4 +1,5 @@
 /* Global Styles */
+@import "tailwindcss";
 
 html{
     box-sizing: border-box;
