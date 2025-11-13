@@ -2,29 +2,47 @@ import { Component, signal } from '@angular/core';
 import { ImageModel } from '../../models/imageModel';
 import { ImageComponent } from '../image/image';
 import { CommonModule } from '@angular/common';
+import { GalleriaModule } from 'primeng/galleria'; // seguir estudiando los modulos/componentes de primeng
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, ImageComponent],
+  imports: [CommonModule, ImageComponent, GalleriaModule],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
 })
 
 export class GalleryComponent {
+
+  imagePath : string = "https://picsum.photos/";
+  imageWidth : string = "400/600";
+  imageType : string = "?grayscale&seed=";
+  // No estoy seguro si esto hará el código más difícil de leer, el lunes pregunto a Raul
+
   images = signal<ImageModel[]>([
-    { id: 1, url: 'https://picsum.photos/200/300?grayscale&seed=1', description: 'Imagen 1', featured: true },
-    { id: 2, url: 'https://picsum.photos/200/300?grayscale&seed=2', description: 'Imagen 2' },
-    { id: 3, url: 'https://picsum.photos/200/300?grayscale&seed=3', description: 'Imagen 3' },
-    { id: 4, url: 'https://picsum.photos/200/300?grayscale&seed=4', description: 'Imagen 4' },
-    { id: 5, url: 'https://picsum.photos/200/300?grayscale&seed=5', description: 'Imagen 5' },
-    { id: 6, url: 'https://picsum.photos/200/300?grayscale&seed=6', description: 'Imagen 6' },
-    { id: 7, url: 'https://picsum.photos/200/300?grayscale&seed=7', description: 'Imagen 7' },
-    { id: 8, url: 'https://picsum.photos/200/300?grayscale&seed=8', description: 'Imagen 8' },
-    { id: 9, url: 'https://picsum.photos/200/300?grayscale&seed=9', description: 'Imagen 9' },
-    { id: 10, url: 'https://picsum.photos/200/300?grayscale&seed=10', description: 'Imagen 10' },
-    { id: 11, url: 'https://picsum.photos/200/300?grayscale&seed=11', description: 'Imagen 11' },
-    { id: 12, url: 'https://picsum.photos/200/300?grayscale&seed=12', description: 'Imagen 12' },
+    { id: 1, url: `${this.imagePath}${this.imageWidth}${this.imageType}1`, description: 'Imagen 1', featured: true },
+    { id: 2, url: `${this.imagePath}${this.imageWidth}${this.imageType}2`, description: 'Imagen 2' },
+    { id: 3, url: `${this.imagePath}${this.imageWidth}${this.imageType}3`, description: 'Imagen 3' },
+    { id: 4, url: `${this.imagePath}${this.imageWidth}${this.imageType}4`, description: 'Imagen 4' },
+    { id: 5, url: `${this.imagePath}${this.imageWidth}${this.imageType}5`, description: 'Imagen 5' },
+    { id: 6, url: `${this.imagePath}${this.imageWidth}${this.imageType}6`, description: 'Imagen 6' },
+    { id: 7, url: `${this.imagePath}${this.imageWidth}${this.imageType}7`, description: 'Imagen 7' },
+    { id: 8, url: `${this.imagePath}${this.imageWidth}${this.imageType}8`, description: 'Imagen 8' },
+    { id: 9, url: `${this.imagePath}${this.imageWidth}${this.imageType}9`, description: 'Imagen 9' },
+    { id: 10, url: `${this.imagePath}${this.imageWidth}${this.imageType}10`, description: 'Imagen 10' },
+    { id: 11, url: `${this.imagePath}${this.imageWidth}${this.imageType}11`, description: 'Imagen 11' },
+    { id: 12, url: `${this.imagePath}${this.imageWidth}${this.imageType}12`, description: 'Imagen 12' },
   ]);
-  // 
+
+  displayImage = signal(false);
+  activeImage: ImageModel | null = null;
+
+  openImage(image: ImageModel) {
+    this.activeImage = image;
+    this.displayImage.set(true);
+  }
+  closeImage() {
+    this.activeImage = null;
+    this.displayImage.set(false);
+  }
 }

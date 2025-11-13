@@ -1,20 +1,23 @@
-<div class=" 
-max-w-screen-2xl w-11/12 md:w-10/12 
-mt-16 mb-16 mx-auto 
-grid gap-4 grid-cols-2 
-md:grid-cols-4 
-lg:grid-cols-5 
-"> 
+<div class="max-w-screen-2xl w-11/12 md:w-10/12 mt-16 mb-16 mx-auto grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5"> 
     @for(image of images(); track image.id) {
-        @if(image.url){
+        @if(image.url){  
             @if(!image.featured){
-                <app-image [image]="image" />
+                <app-image [image]="image" (click)="openImage(image)" class="cursor-pointer hover:opacity-80 transition"/>
             } @else {
-                <app-image [image]="image" 
-                class="lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 object-cover" />
+                <app-image [image]="image" (click)="openImage(image)"
+                class="lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 object-cover cursor-pointer hover:opacity-80 transition"/>
             }
         } @else {
             <div class="flex justify-center items-center tracking-widest">Imagen no disponible</div>
         } 
     }
 </div>
+@if(displayImage()) {
+    <div class="fixed inset-0 bg-white bg-opacity-50 flex justify-center items-center z-50">
+        <div class="relative">
+            <button (click)="closeImage()" class="absolute top-2 right-2 text-white text-3xl font-bold">X</button>
+            <img [src]="activeImage?.url" [alt]="activeImage?.description" 
+            class="max-h-screen max-w-full lg:max-w-4xl rounded-lg object-contain"/>
+        </div>
+    </div>
+}
