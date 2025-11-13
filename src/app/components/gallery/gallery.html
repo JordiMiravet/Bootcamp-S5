@@ -12,12 +12,11 @@
         } 
     }
 </div>
+
 @if(displayImage()) {
-    <div class="fixed inset-0 bg-white bg-opacity-50 flex justify-center items-center z-50">
-        <div class="relative">
-            <button (click)="closeImage()" class="absolute top-2 right-2 text-white text-3xl font-bold">X</button>
-            <img [src]="activeImage?.url" [alt]="activeImage?.description" 
-            class="max-h-screen max-w-full lg:max-w-4xl rounded-lg object-contain"/>
-        </div>
-    </div>
+    <button (click)="closeImage()" class="fixed inset-0 bg-white/70 z-40 cursor-pointer transition"></button>
+    <div class="fixed inset-0 flex justify-center items-center z-50 pointer-events-none">
+        <img [src]="activeImage?.url" [alt]="activeImage?.description"
+        class="max-h-screen max-w-full lg:max-w-4xl rounded-lg object-contain pointer-events-auto"
+    ></div>
 }
