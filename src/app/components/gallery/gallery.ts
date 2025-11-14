@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ImageModel } from '../../models/imageModel';
 import { ImageComponent } from '../image/image';
-import { CommonModule } from '@angular/common';
-import { GalleriaModule } from 'primeng/galleria'; // seguir estudiando los modulos/componentes de primeng
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, ImageComponent, GalleriaModule],
+  imports: [CommonModule, ImageComponent],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
 })
@@ -17,7 +16,6 @@ export class GalleryComponent {
   imagePath : string = "https://picsum.photos/";
   imageWidth : string = "400/600";
   imageType : string = "?grayscale&seed=";
-  // No estoy seguro si esto hará el código más difícil de leer, el lunes pregunto a Raul
 
   images = signal<ImageModel[]>([
     { id: 1, url: `${this.imagePath}${this.imageWidth}${this.imageType}1`, description: 'Imagen 1', featured: true },
