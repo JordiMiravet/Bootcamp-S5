@@ -1,1 +1,18 @@
-<img [src]="image.url" [alt]="image.description" loading="lazy" class="w-full h-full object-cover ratio-[2/3] rounded-sm">
+<div class="relative w-full h-full group">
+    <img 
+        [src]="image.url" 
+        [alt]="image.description" 
+        loading="lazy" 
+        class="w-full h-full object-cover ratio-[2/3] rounded-sm"
+    >
+    <button 
+        (click)="deleteImageClick($event)"
+        class="
+            absolute top-2.5 right-2.5 p-2 w-7.5 h-7.5 rounded 
+            flex justify-center items-center 
+            bg-red-500 text-white 
+            opacity-0 group-hover:opacity-100 transition-opacity"
+        aria-label="Eliminar Imagen"
+        >X
+    </button>
+</div>

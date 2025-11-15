@@ -1,17 +1,24 @@
-<div class="w-11/12 md:w-10/12 md:max-w-7xl lg:max-w-screen-2xl mt-16 mb-16 mx-auto grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5"> 
+<div class="
+    mt-16 mb-16 mx-auto w-11/12 md:w-10/12 md:max-w-7xl lg:max-w-screen-2xl 
+    grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+> 
     @for(image of images(); track image.id) {
         @if(image.url){  
             @if(!image.featured){
                 <app-image 
                     [image]="image" 
-                    (click)="openImage(image)" 
+                    (click)="openImage(image)"
+                    (deleteImage)="handleDelete($event)" 
                     class="cursor-pointer hover:opacity-80 transition"
                 />
             } @else {
                 <app-image 
                     [image]="image" 
                     (click)="openImage(image)"
-                    class="lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 object-cover cursor-pointer hover:opacity-80 transition"
+                    (deleteImage)="handleDelete($event)"
+                    class="
+                        lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 
+                        object-cover cursor-pointer hover:opacity-80 transition"
                 />
             }
         } @else {

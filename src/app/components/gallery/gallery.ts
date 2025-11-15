@@ -43,4 +43,15 @@ export class GalleryComponent {
     this.activeImage = null;
     this.displayImage.set(false);
   }
+
+  handleDelete(image: ImageModel){
+    if(!image.featured){
+      this.images.update(imagesOfArray => imagesOfArray.filter(i => i !== image));
+    } else {
+      this.images.update(imagesOfArray => {
+        const filtered = imagesOfArray.filter(i => i !== image);
+        return filtered.map((img, index) => index === 0 ? {...img, featured: true } : img )
+      })
+    }
+  }
 }
