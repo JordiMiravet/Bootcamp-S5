@@ -16,6 +16,6 @@ export class ImageComponent {
 
   deleteImageClick(event: Event) {
     event.stopPropagation();
-    this.deleteImage.emit(this.image)
+    this.deleteImage.emit(this.image);
   }
 }

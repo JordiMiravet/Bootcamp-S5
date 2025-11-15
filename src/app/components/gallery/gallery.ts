@@ -45,12 +45,15 @@ export class GalleryComponent {
   }
 
   handleDelete(image: ImageModel){
+    const confirmed = window.confirm('¿Estás seguro de que deseas eliminar esta imagen?');
+    if(!confirmed) return;
+
     if(!image.featured){
       this.images.update(imagesOfArray => imagesOfArray.filter(i => i !== image));
     } else {
       this.images.update(imagesOfArray => {
         const filtered = imagesOfArray.filter(i => i !== image);
-        return filtered.map((img, index) => index === 0 ? {...img, featured: true } : img )
+        return filtered.map((img, index) => index === 0 ? {...img, featured: true } : img );
       })
     }
   }
