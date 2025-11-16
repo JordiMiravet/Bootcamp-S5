@@ -9,7 +9,8 @@
                     [image]="image" 
                     (click)="openImage(image)"
                     (deleteImage)="handleDelete($event)" 
-                    class="cursor-pointer hover:opacity-80 transition"
+                    class="cursor-pointer hover:opacity-80 transition" 
+                    cdkDrag
                 />
             } @else {
                 <app-image 
@@ -19,6 +20,7 @@
                     class="
                         lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3 
                         object-cover cursor-pointer hover:opacity-80 transition"
+                    cdkDrag
                 />
             }
         } @else {

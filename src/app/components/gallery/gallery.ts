@@ -2,11 +2,12 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModel } from '../../models/imageModel';
 import { ImageComponent } from '../image/image';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, ImageComponent],
+  imports: [CommonModule, ImageComponent, CdkDrag],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
 })
@@ -58,4 +59,6 @@ export class GalleryComponent {
       })
     }
   }
+
+  
 }
