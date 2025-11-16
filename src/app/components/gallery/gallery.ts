@@ -13,27 +13,28 @@ import { ImageComponent } from '../image/image';
 
 export class GalleryComponent {
 
-  imagePath : string = "https://picsum.photos/";
-  imageWidth : string = "400/600";
-  imageType : string = "?grayscale&seed=";
+  IMAGE_PATH : string = "https://picsum.photos/";
+  IMAGE_WIDTH : string = "400/600";
+  IMAGE_TYPE : string = "?grayscale&seed=";
 
   images = signal<ImageModel[]>([
-    { id: 1, url: `${this.imagePath}${this.imageWidth}${this.imageType}1`, description: 'Imagen 1', featured: true },
-    { id: 2, url: `${this.imagePath}${this.imageWidth}${this.imageType}2`, description: 'Imagen 2' },
-    { id: 3, url: `${this.imagePath}${this.imageWidth}${this.imageType}3`, description: 'Imagen 3' },
-    { id: 4, url: `${this.imagePath}${this.imageWidth}${this.imageType}4`, description: 'Imagen 4' },
-    { id: 5, url: `${this.imagePath}${this.imageWidth}${this.imageType}5`, description: 'Imagen 5' },
-    { id: 6, url: `${this.imagePath}${this.imageWidth}${this.imageType}6`, description: 'Imagen 6' },
-    { id: 7, url: `${this.imagePath}${this.imageWidth}${this.imageType}7`, description: 'Imagen 7' },
-    { id: 8, url: `${this.imagePath}${this.imageWidth}${this.imageType}8`, description: 'Imagen 8' },
-    { id: 9, url: `${this.imagePath}${this.imageWidth}${this.imageType}9`, description: 'Imagen 9' },
-    { id: 10, url: `${this.imagePath}${this.imageWidth}${this.imageType}10`, description: 'Imagen 10' },
-    { id: 11, url: `${this.imagePath}${this.imageWidth}${this.imageType}11`, description: 'Imagen 11' },
-    { id: 12, url: `${this.imagePath}${this.imageWidth}${this.imageType}12`, description: 'Imagen 12' },
+    { id: 1, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}1`, description: 'Imagen 1', featured: true },
+    { id: 2, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}2`, description: 'Imagen 2' },
+    { id: 3, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}3`, description: 'Imagen 3' },
+    { id: 4, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}4`, description: 'Imagen 4' },
+    { id: 5, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}5`, description: 'Imagen 5' },
+    { id: 6, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}6`, description: 'Imagen 6' },
+    { id: 7, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}7`, description: 'Imagen 7' },
+    { id: 8, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}8`, description: 'Imagen 8' },
+    { id: 9, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}9`, description: 'Imagen 9' },
+    { id: 10, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}10`, description: 'Imagen 10' },
+    { id: 11, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}11`, description: 'Imagen 11' },
+    { id: 12, url: `${this.IMAGE_PATH}${this.IMAGE_WIDTH}${this.IMAGE_TYPE}12`, description: 'Imagen 12' },
   ]);
 
   displayImage = signal(false);
   activeImage: ImageModel | null = null;
+  IMAGE_FEATURED : number = 0;
 
   openImage(image: ImageModel) {
     this.activeImage = image;
@@ -53,7 +54,7 @@ export class GalleryComponent {
     } else {
       this.images.update(imagesOfArray => {
         const filtered = imagesOfArray.filter(i => i !== image);
-        return filtered.map((img, index) => index === 0 ? {...img, featured: true } : img );
+        return filtered.map((img, index) => index === this.IMAGE_FEATURED ? {...img, featured: true } : img );
       })
     }
   }
