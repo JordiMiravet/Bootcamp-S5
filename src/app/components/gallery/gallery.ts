@@ -1,13 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, Signal, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModel } from '../../models/imageModel';
 import { ImageComponent } from '../image/image';
-import { CdkDrag } from '@angular/cdk/drag-drop';
+import { DragDropModule, CdkDragDrop, CdkDrag, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, ImageComponent, CdkDrag],
+  imports: [CommonModule, ImageComponent,CdkDrag, CdkDropList, DragDropModule],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
 })
@@ -60,5 +60,19 @@ export class GalleryComponent {
     }
   }
 
-  
+  drop(event: CdkDragDrop<ImageModel[]>){
+    this.images.update(images => {
+      moveItemInArray(images, event.previousIndex, event.currentIndex);
+
+      if(!images[0].featured){
+        images = images.map((img, index) => {
+          return index === this.IMAGE_FEATURED 
+            ? { ...img, featured: true }
+            : { ...img, featured: false }
+        })
+      }
+      return images;
+    });
+  }
+
 }
