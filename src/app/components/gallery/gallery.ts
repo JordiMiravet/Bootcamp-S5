@@ -10,6 +10,7 @@ import { DragDropModule, CdkDragDrop, CdkDrag, CdkDropList, moveItemInArray } fr
   imports: [CommonModule, ImageComponent,CdkDrag, CdkDropList, DragDropModule],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
+  
 })
 
 export class GalleryComponent {

@@ -18,16 +18,13 @@
                     />
                 </div>
             } @else {
-                <div cdkDrag>
+                <div cdkDrag class="lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3">
                     <app-image 
                         [image]="image" 
                         (click)="openImage(image)"
                         (deleteImage)="handleDelete($event)"
-                        class="
-                        {{ image.featured 
-                            ? 'cursor-pointer hover:opacity-80 transition lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3' 
-                            : 'cursor-pointer hover:opacity-80 transition' 
-                        }}"
+                        class="cursor-pointer hover:opacity-80 transition"
+                        
                     />
                 </div>
             }
