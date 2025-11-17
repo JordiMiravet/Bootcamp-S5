@@ -97,16 +97,16 @@ ng serve
 
 ##### Propiedades basicas:
 
-`images` : Lista de imágenes.
-`displayImage`: Si se está viendo una imagen ampliada.
-`activeImage` : Imagen que se está viendo grande.
+- `images` : Lista de imágenes.
+- `displayImage`: Si se está viendo una imagen ampliada.
+- `activeImage` : Imagen que se está viendo grande.
 
 ##### Funciones:
 
-`openImage(image)` — Al clicar sobre la imagen la abre.
-`closeImage()` — Al clicar sobre el fondo cierra la imagen.
-`handleDelete(image)` — Borra una imagen
-`drop(event)` — Cambia el orden de las imágenes.
+- `openImage(image)` — Al clicar sobre la imagen la abre.
+- `closeImage()` — Al clicar sobre el fondo cierra la imagen.
+- `handleDelete(image)` — Borra una imagen
+- `drop(event)` — Cambia el orden de las imágenes.
 
 ---
 
@@ -119,7 +119,14 @@ Al empezar a entender un poco el componente intento ponerme creativo para verifi
 
 Para la eliminación de imagenes decido (no se si con buen tino) que el evento sea disparado por el hijo y recogido por el padre, en este caso (siguiendo las indicaciónes del briefing) busqué un icono de trash minimalista y decido colocarlo en la parte superior derecha de la imagen y para no perturbar el estilo general añadiendo ruido y color, decido esconderlo mientras no se hace hover sobre esta, así al visualizar la galeria esta se muestra con su estilo b/n sobrio y neutro.
 
-Para el drag-and-drop de @angular/cdk, al revisar su documentación para distintos tipos de eventos. Finalmente me decido por el "List wrapping" [Info][https://material.angular.dev/cdk/drag-drop/overview] que permite agarrar, mover y soltar imágenes para recolocarlas en el layout de la galería, permitiendome conservar el estilo distributivo de esta. En este apartado debo resaltar que me ha parecido mas facil de lo que me pensaba (talvez porque era una libreria y los componentes traen sus propias acciones predefinidas), pero aún y así recoge una complegidad que no habia valorado al leer el briefing por primera vez (lo habia imaginado diferente en mi cabeza, talvez pensando aún en un estilo javascript vanilla).
+Para el drag-and-drop de @angular/cdk, al revisar su documentación para distintos tipos de eventos. Finalmente me decido por el "List wrapping" [Info](https://material.angular.dev/cdk/drag-drop/overview) que permite agarrar, mover y soltar imágenes para recolocarlas en el layout de la galería, permitiendome conservar el estilo distributivo de esta. En este apartado debo resaltar que me ha parecido mas facil de lo que me pensaba (talvez porque era una libreria y los componentes traen sus propias acciones predefinidas), pero aún y así recoge una complegidad que no habia valorado al leer el briefing por primera vez (lo habia imaginado diferente en mi cabeza, talvez pensando aún en un estilo javascript vanilla).
 
 Al sincerarme sobre el recorrido deste trabajo (eventos que llaman a otros componentes y estos a su vez disparan una funcion, el añadido del typescript que aún lo siento endeble entre mis conocimientos y que le añaden verbosidad al codigo, eventos reactivos, los signal, volver a reconectarme con las clases (y modificar elementos mediante seters), etc), despues de todo el codigo, al releerlo cada vez que volvia a ponerme me ha resultado dificil de seguir (aunque debo destacar que cada vez me ha ido pasando menos), en este sentido le achaco la sensacion a que Angular a desestructurado mi orden mental a la hora de seguir la logica del codigo y lo ha recolocado a su voluntad, del mismo modo entiendo que empezaré a seguir el hilo cada vez de manera mas natural, aunque en mi sigue habiendo un patrón de miedo y suspense por no saber si he adquirido correctamente los conocimientos, aunque reconozco para mi tranquilidad que esta semana he aprendido varios elementos y mucha sintaxis y con eso intento quedarme.
 
+---
+
+## Autor
+
+```text
+Jordi Miravet – Bootcamp S5 : Angular - Image Gallery
+```
