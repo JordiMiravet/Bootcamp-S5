@@ -16,11 +16,13 @@ describe('ImageComponent', () => {
   });
 
   it("should render an image with correct src and alt", () => {
+    
     const testImage: ImageModel = {
       id: 1,
       url: 'https://picsum.photos/200/300?grayscale&seed=1',
       description: 'Test image 1'
     };
+
     component.image = testImage;
     fixture.detectChanges();
 
