@@ -1,10 +1,11 @@
 # Sprint 5 - ImageGallery
 
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.png?v=101)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-TS-blue?style=for-the-badge)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-Jest-blue)
-![Angular](https://img.shields.io/badge/Angular-%23DD0031.svg?logo=angular&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-Jest-blue?style=for-the-badge)
+
 
 ## Descripcion de la Aplicación: 
 
