@@ -142,15 +142,15 @@ A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y t
 
 1. Zoom In - Zoom Out
 
-<video src="assets/readme_images/ZoomIn_ZoomOut.mp4" width="400" autoplay loop muted></video>
+![Zoom In / Out](assets/readme_images/ZoomIn_ZoomOut.gif)
 
 2. Delete
 
-<video src="assets/readme_images/Delete.mp4" width="400" autoplay loop muted></video>
+![Delete](assets/readme_images/Delete.gif)
 
 3. Drag and Drop
 
-<video src="assets/readme_images/DragAndDrop.mp4" width="400" autoplay loop muted></video>
+![Drag and Drop](assets/readme_images/ZoomIn_ZoomOut.gif)
 
 ---
 
