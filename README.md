@@ -6,7 +6,7 @@
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Tests](https://img.shields.io/badge/Tests-Jasmine-8A4Baf?style=for-the-badge&logo=jasmine&logoColor=white)
 
-## Descripcion de la Aplicación: 
+## Descripción de la Aplicación:
 
 Este proyecto Angular es una galería de imágenes y tiene dos componentes principales:
 - `ImageComponent`: muestra una sola imagen y un botón para eliminarla
@@ -18,7 +18,7 @@ Se puede:
 - Eliminar cualquier imagen
 - Arrastrar y soltar imágenes para reordenarlas
 
-## Técnologias
+## Tecnologías
 
 - HTML y CSS (con Tailwind para estilos)
 - TypeScript
@@ -85,13 +85,9 @@ ng serve
 - `@Input() image` : La imagen a mostrar
 - `@Output() deleteImage` : Evento que se dispara al eliminar la imagen
 
-**Ejemplo de uso :**
-```typescript
-<app-image 
-  [image]="image" 
-  (deleteImage)="handleDelete($event)"
-></app-image>
-```
+##### Funciones:
+
+- `deleteImageClick` : Emite el evento al Padre
 
 ---
 
@@ -118,16 +114,43 @@ ng serve
 
 ##### Decisiones del proyecto
 
-Mi primera decisión ha sido entender el componente mas básico y su tarea, en este sentido he querido entender que al ser una galeria, el componente minimo era una imagen, al encontrarme durante el ejercicio que deberia de destacar una de ellas por encima de las demás, decido que fuera la primera del array [0] por motivos técnicos y de estilo (y por lo que he ido viendo, creo que ha sido una buena decision (aunque me he quedado con las ganas de probar el "destacados" mediante seleccion del usuario)).
-Dicho lo cual, finalmente también decido mostrar un mensaje si falta la URL de la imagen (prueba de caso de error en el que he aprovechado y probado la logica @if/@else del HTML (y en este sentido me ha parecido curiosa la nueva manera en la que se recorre y muestra un array dentro precisa y extrañamente del HTML, lo he sentido claro e imaginativo en este punto)). 
+Durante el desarrollo tomé distintas decisiones técnicas para estructurar y mejorar la galería:
 
-Al empezar a entender un poco el componente intento ponerme creativo para verificar mis recien adquiridos conocimientos, así que me pongo a probar a ampliar imagenes segun son seleccionada, el evento (que lo dispongo como si la imagen misma fuera el activador de este) dispara una funcion que es escuchada por el padre para que este la muestre en grande. Del mismo modo una vez ampliada, al clicar en el fondo se dispara otro evento que la cierra (esta parte la implementé por probar, no estaba en la escaleta del ejercicio, pero como he dicho quería experimentarla para entender un poco mas como funcionaban los eventos y cual era su recorrido en Angular). 
+1. Componente base
+Al encarar el Sprint, decidí que el elemento mínimo del proyecto debía ser una imagen individual, por lo que enfoqué primero el `ImageComponent` y su responsabilidad mas básica. Además, como el enunciado pedía destacar una imagen, opté por resaltar siempre la primera del array (`images[0]`) por razones técnicas y estéticas, aunque me habría gustado explorar un sistema de “destacados” seleccionable por el usuario.
 
-Para la eliminación de imagenes decido (no se si con buen tino) que el evento sea disparado por el hijo y recogido por el padre, en este caso (siguiendo las indicaciónes del briefing) busqué un icono de trash minimalista y decido colocarlo en la parte superior derecha de la imagen y para no perturbar el estilo general añadiendo ruido y color, decido esconderlo mientras no se hace hover sobre esta, así al visualizar la galeria esta se muestra con su estilo b/n sobrio y neutro.
+2. Manejo de imágenes sin URL
+Añadí un mensaje de error cuando falta la URL de una imagen. Esto me permitió probar la lógica `@if/@else` y la nueva manera de recorrer listas en el `HTML`, que me pareció intuitiva e imaginativa.
 
-Para el drag-and-drop de @angular/cdk, al revisar su documentación para distintos tipos de eventos. Finalmente me decido por el "List wrapping" [Info](https://material.angular.dev/cdk/drag-drop/overview) que permite agarrar, mover y soltar imágenes para recolocarlas en el layout de la galería, permitiendome conservar el estilo distributivo de esta. En este apartado debo resaltar que me ha parecido mas facil de lo que me pensaba (talvez porque era una libreria y los componentes traen sus propias acciones predefinidas), pero aún y así recoge una complegidad que no habia valorado al leer el briefing por primera vez (lo habia imaginado diferente en mi cabeza, talvez pensando aún en un estilo javascript vanilla).
+3. Ampliar imágenes
+Para experimentar con los eventos entre componentes, implementé que al clicar una imagen esta se ampliara y al clicar fuera de la imagen ampliada, se dispara otro evento para cerrarla. Esta funcionalidad no estaba en el briefing, pero decidí añadirla para reforzar mi comprensión del flujo de eventos en `Angular`.
 
-Al sincerarme sobre el recorrido deste trabajo (eventos que llaman a otros componentes y estos a su vez disparan una funcion, el añadido del typescript que aún lo siento endeble entre mis conocimientos y que le añaden verbosidad al codigo, eventos reactivos, los signal, volver a reconectarme con las clases (y modificar elementos mediante seters), etc), despues de todo el codigo, al releerlo cada vez que volvia a ponerme me ha resultado dificil de seguir (aunque debo destacar que cada vez me ha ido pasando menos), en este sentido le achaco la sensacion a que Angular a desestructurado mi orden mental a la hora de seguir la logica del codigo y lo ha recolocado a su voluntad, del mismo modo entiendo que empezaré a seguir el hilo cada vez de manera mas natural, aunque en mi sigue habiendo un patrón de miedo y suspense por no saber si he adquirido correctamente los conocimientos, aunque reconozco para mi tranquilidad que esta semana he aprendido varios elementos y mucha sintaxis y con eso intento quedarme.
+4. Eliminación de imágenes
+Seguí el enfoque indicado: el hijo emite un evento (`deleteImage`) y el padre elimina la imagen.
+Busqué un icono de papelera minimalista y lo coloqué en la esquina superior derecha. Para no romper la estética neutra de la galería, decidí ocultarlo hasta que se hace hover sobre la imagen.
+
+5. Reordenación con `Drag & Drop`
+Tras revisar la documentación de `@angular/cdk`, opté por la estrategia [List Wrapping](https://material.angular.dev/cdk/drag-drop/overview), que permite arrastrar y recolocar imágenes respetando el diseño de la galería.
+Me resultó más sencillo de implementar de lo que esperaba, aunque implicaba una complejidad que no imaginé al leer el briefing inicialmente, talvez porque aún no me habia hecho a la estructura de `Angular`.
+
+6. Organización y flujo del proyecto
+A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y tipado— la lectura del código se volvió más desafiante. Sin embargo, con cada revisión se hizo más comprensible. Aunque `Angular` cambió mi forma habitual de razonar la estructura de un proyecto y lo recolocó a su voluntad, siento que empiezo a seguir el flujo de manera algo más natural.
+
+---
+
+## Vista previa del proyecto:
+
+1. Zoom In - Zoom Out
+
+<video src="assets/readme_images/ZoomIn_ZoomOut.mp4" width="400" autoplay loop muted></video>
+
+2. Delete
+
+<video src="assets/readme_images/Delete.mp4" width="400" autoplay loop muted></video>
+
+3. Drag and Drop
+
+<video src="assets/readme_images/DragAndDrop.mp4" width="400" autoplay loop muted></video>
 
 ---
 
