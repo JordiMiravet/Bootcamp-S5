@@ -18,6 +18,8 @@ Se puede:
 - Eliminar cualquier imagen
 - Arrastrar y soltar imágenes para reordenarlas
 
+--- 
+
 ## Tecnologías
 
 - HTML y CSS (con Tailwind para estilos)
@@ -27,7 +29,7 @@ Se puede:
 
 ---
 
-### Estructura del Proyecto:
+## Estructura del Proyecto:
 
 ```bash
 src/
@@ -72,7 +74,7 @@ ng serve
 
 ---
 
-### Componentes:
+## Componentes:
 
 #### `components/image`
 
