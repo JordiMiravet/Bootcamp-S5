@@ -151,7 +151,7 @@ A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y t
 
 3. Drag and Drop
 
-![Drag and Drop](assets/readme_images/ZoomIn_ZoomOut.gif)
+![Drag and Drop](assets/readme_images/DragAndDrop.gif)
 
 ---
 
