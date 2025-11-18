@@ -118,24 +118,24 @@ ng serve
 Durante el desarrollo tomé distintas decisiones técnicas para estructurar y mejorar la galería:
 
 1. Componente base:
-Al encarar el Sprint, decidí que el elemento mínimo del proyecto debía ser una imagen individual, por lo que enfoqué primero el `ImageComponent` y su responsabilidad mas básica. Además, como el enunciado pedía destacar una imagen, opté por resaltar siempre la primera del array (`images[0]`) por razones técnicas y estéticas, aunque me habría gustado explorar un sistema de “destacados” seleccionable por el usuario.
+- Al encarar el Sprint, decidí que el elemento mínimo del proyecto debía ser una imagen individual, por lo que enfoqué primero el `ImageComponent` y su responsabilidad mas básica. Además, como el enunciado pedía destacar una imagen, opté por resaltar siempre la primera del array (`images[0]`) por razones técnicas y estéticas, aunque me habría gustado explorar un sistema de “destacados” seleccionable por el usuario.
 
 2. Manejo de imágenes sin URL:
-Añadí un mensaje de error cuando falta la URL de una imagen. Esto me permitió probar la lógica `@if/@else` y la nueva manera de recorrer listas en el `HTML`, que me pareció intuitiva e imaginativa.
+- Añadí un mensaje de error cuando falta la URL de una imagen. Esto me permitió probar la lógica `@if/@else` y la nueva manera de recorrer listas en el `HTML`, que me pareció intuitiva e imaginativa.
 
 3. Ampliar imágenes:
-Para experimentar con los eventos entre componentes, implementé que al clicar una imagen esta se ampliara y al clicar fuera de la imagen ampliada, se dispara otro evento para cerrarla. Esta funcionalidad no estaba en el briefing, pero decidí añadirla para reforzar mi comprensión del flujo de eventos en `Angular`.
+- Para experimentar con los eventos entre componentes, implementé que al clicar una imagen esta se ampliara y al clicar fuera de la imagen ampliada, se dispara otro evento para cerrarla. Esta funcionalidad no estaba en el briefing, pero decidí añadirla para reforzar mi comprensión del flujo de eventos en `Angular`.
 
 4. Eliminación de imágenes:
-Seguí el enfoque indicado: el hijo emite un evento (`deleteImage`) y el padre elimina la imagen.
+- Seguí el enfoque indicado: el hijo emite un evento (`deleteImage`) y el padre elimina la imagen.
 Busqué un icono de papelera minimalista y lo coloqué en la esquina superior derecha. Para no romper la estética neutra de la galería, decidí ocultarlo hasta que se hace hover sobre la imagen.
 
 5. Reordenación con `Drag & Drop`:
-Tras revisar la documentación de `@angular/cdk`, opté por la estrategia [List Wrapping](https://material.angular.dev/cdk/drag-drop/overview), que permite arrastrar y recolocar imágenes respetando el diseño de la galería.
+- Tras revisar la documentación de `@angular/cdk`, opté por la estrategia [List Wrapping](https://material.angular.dev/cdk/drag-drop/overview), que permite arrastrar y recolocar imágenes respetando el diseño de la galería.
 Me resultó más sencillo de implementar de lo que esperaba, aunque implicaba una complejidad que no imaginé al leer el briefing inicialmente, talvez porque aún no me habia hecho a la estructura de `Angular`.
 
-6. Organización y flujo del proyecto
-A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y tipado— la lectura del código se volvió más desafiante. Sin embargo, con cada revisión se hizo más comprensible. Aunque `Angular` cambió mi forma habitual de razonar la estructura de un proyecto y lo recolocó a su voluntad, siento que empiezo a seguir el flujo de manera algo más natural.
+6. Organización y flujo del proyecto:
+- A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y tipado— la lectura del código se volvió más desafiante. Sin embargo, con cada revisión se hizo más comprensible. Aunque `Angular` cambió mi forma habitual de razonar la estructura de un proyecto y lo recolocó a su voluntad, siento que empiezo a seguir el flujo de manera algo más natural.
 
 ---
 
@@ -158,6 +158,7 @@ A medida que el proyecto crecía —con eventos, TypeScript, signals, clases y t
 ## GH-Pages:
 
 [Ver el proyecto](https://jordimiravet.github.io/Bootcamp-S5/)
+
 ---
 
 ## Autor
