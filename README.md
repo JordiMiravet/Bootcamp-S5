@@ -89,7 +89,6 @@ ng serve
 
 - `deleteImageClick` : Emite el evento al Padre
 
----
 
 #### `components/gallery`
 
@@ -112,7 +111,7 @@ ng serve
 
 ---
 
-##### Decisiones del proyecto
+## Decisiones del proyecto
 
 Durante el desarrollo tomé distintas decisiones técnicas para estructurar y mejorar la galería:
 
