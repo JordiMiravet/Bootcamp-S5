@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy,  } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy,  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModel } from '../../models/imageModel';
 
@@ -11,11 +11,12 @@ import { ImageModel } from '../../models/imageModel';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageComponent {
-  @Input() image!: ImageModel;
-  @Output() deleteImage = new EventEmitter<ImageModel>();
+
+  image = input.required<ImageModel>();
+  deleteImage = output<ImageModel>();
 
   deleteImageClick(event: Event) {
     event.stopPropagation();
-    this.deleteImage.emit(this.image);
+    this.deleteImage.emit(this.image());
   }
 }
