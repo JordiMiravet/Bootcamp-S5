@@ -3,7 +3,7 @@
     cdkDropListOrientation="mixed"
     class="
         mt-16 mb-16 mx-auto w-11/12 md:w-10/12 md:max-w-7xl lg:max-w-screen-2xl 
-        grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+        grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 touch-pan-y"
     (cdkDropListDropped)="drop($event)"
 > 
     @for(image of images(); track image.id) {
